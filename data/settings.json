@@ -1,0 +1,26 @@
+{
+  "site_title": "乐享星期日的樱华小屋",
+  "site_subtitle": "樱花个人空间",
+  "profile_name": "乐享星期日",
+  "profile_motto": "风来听风，雨来赏雨，风遇山止，船到岸停。",
+  "profile_avatar": "assets/avatar/daniya.png",
+  "footer_text": "风来听风，雨来赏雨，风遇山止，船到岸停。",
+  "github_url": "https://github.com/1786329860",
+  "email": "1786329860@qq.com",
+  "birthday": "01-01",
+  "home_post_limit": 8,
+  "weather": {
+    "provider": "open-meteo",
+    "latitude": 39.9042,
+    "longitude": 116.4074,
+    "city": "北京"
+  },
+  "music": [
+    {
+      "title": "越来越不懂",
+      "artist": "蔡健雅",
+      "url": "assets/audio/yue-lai-yue-bu-dong.mp3",
+      "cover": "assets/avatar/daniya.png"
+    }
+  ]
+}

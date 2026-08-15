@@ -1,0 +1,32 @@
+/* ============================================================
+   scenes.css — 场景系统：每个页面的樱花情绪
+   场景切换时：侧边栏场景卡变色、时间线描边等随场景变量
+   ============================================================ */
+
+/* 场景卡背景色随场景变量 */
+.scene-context { background: linear-gradient(140deg, var(--sky-top), var(--sky-mid) 70%, var(--sky-low)); }
+
+/* 首页 hero 的 eyebrow 与图标随场景取色 */
+.section-eyebrow { color: var(--accent); }
+.tool-hub__eyebrow { color: var(--accent); }
+
+/* 各页面的时间线节点与描边随场景 */
+body[data-scene="logs"] .timeline-node { border-color: var(--accent); }
+body[data-scene="logs"] .timeline-container::before { background: linear-gradient(180deg, var(--accent), rgba(255, 255, 255, 0.6)); }
+
+/* 场景切换时的樱花过渡（@property 已声明，渐变颜色可平滑过渡） */
+body { transition: background 1.2s ease; }
+.layer-a { transition: background 1.2s ease; }
+
+/* 夜樱场景（留言板）下文字反差增强 */
+body[data-scene="notes"] .glass-panel,
+body[data-scene="guest"] .glass-panel {
+  background: rgba(255, 248, 251, 0.55);
+}
+
+/* 樱游园场景的点缀 */
+body[data-scene="game"] .neo-btn:hover { background: rgba(255, 255, 255, 0.9); }
+body[data-scene="game"] .nav-btn.active {
+  background: linear-gradient(135deg, #f08a5d, #ffd9b8);
+  color: #6b3a20;
+}

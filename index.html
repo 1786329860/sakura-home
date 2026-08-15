@@ -1,0 +1,321 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>乐享星期日 · 樱华小屋 | 樱花个人空间</title>
+  <meta name="description" content="欢迎来到乐享星期日的个人空间：生活日志、ACG 收藏、随笔、留言板，以及一场明亮樱花树下的温柔散步。">
+  <link rel="icon" type="image/svg+xml" href="assets/icons/favicon.svg">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="css/variables.css">
+  <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" href="css/intro.css">
+  <link rel="stylesheet" href="css/widgets.css">
+  <link rel="stylesheet" href="css/sky-canvas.css">
+  <link rel="stylesheet" href="css/scenes.css">
+  <link rel="stylesheet" href="css/tools.css">
+</head>
+<body data-scene="home">
+  <div id="dynamic-bg-container" class="dynamic-bg-container">
+    <div class="dynamic-bg-layer layer-a"></div>
+    <div class="dynamic-bg-layer layer-b"></div>
+    <div class="dynamic-bg-overlay"></div>
+  </div>
+
+  <canvas id="sky-canvas" aria-hidden="true"></canvas>
+
+  <div id="splash-screen" class="splash-screen" role="dialog" aria-label="樱花铁路开场动画">
+    <div class="splash-bg"></div>
+    <video id="intro-video" class="intro-video" muted playsinline preload="auto"
+           poster="assets/video/sakura-railway-poster.webp" aria-hidden="true">
+      <source src="assets/video/sakura-railway-opening.webm" type="video/webm">
+      <source src="assets/video/sakura-railway-opening.mp4" type="video/mp4">
+    </video>
+    <canvas id="intro-canvas" aria-hidden="true"></canvas>
+    <div class="intro-vignette"></div>
+    <section class="intro-content">
+      <span class="intro-kicker">SAKURA · WIND · SUNDAY</span>
+      <h1>乐享星期日</h1>
+      <p id="intro-daily-verse">今日诗句，随风展开。</p>
+    </section>
+    <button id="skip-intro" class="intro-skip" type="button">跳过开场</button>
+  </div>
+
+  <div id="birthday-overlay" class="birthday-overlay" aria-hidden="true"></div>
+
+  <div class="site-wrapper">
+    <header class="site-header">
+      <nav class="navbar glass-panel">
+        <a class="logo-area" href="#home" aria-label="返回首页">
+          <span class="logo-icon">🌸</span>
+          <span>乐享星期日的樱华小屋</span>
+        </a>
+        <div class="nav-links" aria-label="主导航">
+          <button class="neo-btn nav-btn active" data-page="home" type="button" aria-current="page">
+            <i class="fas fa-home"></i> 首页
+          </button>
+          <button class="neo-btn nav-btn" data-page="logs" type="button">
+            <i class="fas fa-book-open"></i> 生活志
+          </button>
+          <button class="neo-btn nav-btn" data-page="acg" type="button">
+            <i class="fas fa-compact-disc"></i> ACG收藏
+          </button>
+          <button class="neo-btn nav-btn" data-page="notes" type="button">
+            <i class="fas fa-feather-pointed"></i> 随笔
+          </button>
+          <button class="neo-btn nav-btn" data-page="guest" type="button">
+            <i class="fas fa-comment-dots"></i> 留言板
+          </button>
+          <button class="neo-btn nav-btn" data-page="game" type="button">
+            <i class="fas fa-puzzle-piece"></i> 小工具&amp;小游戏
+          </button>
+        </div>
+      </nav>
+    </header>
+
+    <main class="main-grid">
+      <aside class="sidebar" id="scene-sidebar">
+        <section class="neo-flat profile-widget" data-sidebar-slot="profile">
+          <div class="profile-avatar-container">
+            <img class="profile-avatar" src="assets/avatar/daniya.png" alt="头像" id="profile-avatar-img">
+          </div>
+          <div class="profile-name">乐享星期日</div>
+          <p class="profile-motto">“风来听风，雨来赏雨，风遇山止，船到岸停。”</p>
+          <div class="social-links">
+            <a href="https://github.com/1786329860" target="_blank" rel="noopener noreferrer" class="neo-btn social-btn" aria-label="GitHub"><i class="fab fa-github"></i></a>
+            <a href="mailto:1786329860@qq.com" class="neo-btn social-btn" aria-label="邮箱"><i class="fas fa-envelope"></i></a>
+          </div>
+        </section>
+
+        <section class="scene-context" data-sidebar-slot="scene" aria-label="当前页面场景" hidden>
+          <div class="scene-context__content" data-scene-content></div>
+        </section>
+
+        <section class="neo-flat clock-weather-widget" data-sidebar-slot="clock">
+          <div class="analog-clock" aria-label="当前时间">
+            <div class="clock-hand hand-hour" id="hour-hand"></div>
+            <div class="clock-hand hand-minute" id="minute-hand"></div>
+            <div class="clock-hand hand-second" id="second-hand"></div>
+            <div class="clock-center"></div>
+          </div>
+          <div class="weather-info neo-sunken">
+            <i class="fas fa-cloud-sun weather-icon"></i>
+            <div class="weather-details">
+              <span class="weather-temp" id="weather-temp">--°C</span>
+              <span class="weather-desc" id="weather-desc">微风 · 樱花轻摇</span>
+            </div>
+          </div>
+        </section>
+
+        <section class="neo-flat music-player-widget" data-sidebar-slot="player">
+          <div class="vinyl-disc-container">
+            <div class="player-needle" id="player-needle">
+              <div class="needle-body"></div>
+              <div class="needle-head"></div>
+            </div>
+            <div class="vinyl-disc" id="vinyl-disc">
+              <div class="vinyl-label" id="vinyl-label">🌸</div>
+            </div>
+          </div>
+          <div class="song-info">
+            <div class="song-title" id="song-title">樱之电台 · 加载中...</div>
+            <div class="song-artist" id="song-artist">正在准备曲目</div>
+          </div>
+          <div class="progress-bar-container">
+            <div class="progress-track neo-sunken" id="progress-track">
+              <div class="progress-fill" id="progress-fill"></div>
+            </div>
+          </div>
+          <div class="player-controls">
+            <button class="neo-btn player-btn" id="prev-btn" type="button" aria-label="上一首"><i class="fas fa-backward"></i></button>
+            <button class="neo-btn player-btn play-toggle" id="play-btn" type="button" aria-label="播放"><i class="fas fa-play"></i></button>
+            <button class="neo-btn player-btn" id="next-btn" type="button" aria-label="下一首"><i class="fas fa-forward"></i></button>
+          </div>
+        </section>
+      </aside>
+
+      <section class="content-area">
+        <section class="page-section active" id="home-page">
+          <div class="hero-panel glass-panel">
+            <span class="section-eyebrow">Sakura Diary</span>
+            <h2>欢迎来到我的樱华小屋</h2>
+            <p>
+              樱花满开，去留无意。这里收藏生活的风、动画的光，和偶尔停下来的星期日。
+            </p>
+            <blockquote>
+              风来听风，雨来赏雨，风遇山止，船到岸停。
+            </blockquote>
+          </div>
+
+          <div class="home-cards">
+            <button class="neo-flat home-card nav-card" type="button" data-page-link="logs">
+              <i class="fas fa-heart"></i>
+              <h2>心情日记</h2>
+              <p>樱花树下，记录生活的每一阵风。</p>
+            </button>
+            <button class="neo-flat home-card nav-card" type="button" data-page-link="acg">
+              <i class="fas fa-wand-magic-sparkles"></i>
+              <h2>ACG 收藏</h2>
+              <p>收藏那些震颤心灵的画面、音乐、角色与故事。</p>
+            </button>
+            <button class="neo-flat home-card nav-card" type="button" data-page-link="notes">
+              <i class="fas fa-feather-pointed"></i>
+              <h2>随笔</h2>
+              <p>风来听风，雨来赏雨，随手写下今日。</p>
+            </button>
+          </div>
+
+          <section class="recent-updates glass-panel" id="recent-updates" hidden aria-labelledby="recent-updates-title">
+            <header class="recent-updates__header">
+              <div>
+                <span class="section-eyebrow">Recent Updates</span>
+                <h2 id="recent-updates-title">最近更新</h2>
+              </div>
+              <p>生活、收藏与随笔的新近一页。</p>
+            </header>
+            <div class="recent-updates__grid" id="recent-updates-grid"></div>
+          </section>
+        </section>
+
+        <section class="page-section" id="logs-page">
+          <div class="timeline-container">
+            <div class="timeline-item fallback-post" data-date="2026-08-09">
+              <div class="timeline-node"></div>
+              <article class="neo-flat log-card">
+                <div class="log-header">
+                  <span class="log-date">2026-08-09</span>
+                  <span class="log-mood">🌸 樱 · 生活日志</span>
+                </div>
+                <h2 class="log-title">周末的樱花</h2>
+                <p class="log-content">周日下午的樱花开得正好，风一过就下起一场小小的花雪，把石板路铺成淡粉色。</p>
+                <div class="log-media">
+                  <div class="polaroid-frame sky-emoji-frame">🌸</div>
+                </div>
+              </article>
+            </div>
+          </div>
+        </section>
+
+        <section class="page-section" id="notes-page">
+          <div class="notes-grid">
+            <article class="neo-flat note-empty">
+              <span class="note-kicker">Notes</span>
+              <h2>随笔正在加载</h2>
+              <p>把随手写下的文字放在这里，按照时间从新到旧排列。</p>
+            </article>
+          </div>
+        </section>
+
+        <section class="page-section" id="acg-page">
+          <div class="acg-grid">
+            <article class="neo-flat acg-card fallback-post" data-date="2026-08-08">
+              <div class="acg-banner sky-emoji-banner">🏰</div>
+              <div class="acg-body">
+                <h2 class="acg-title">《天空之城》</h2>
+                <p class="acg-review">云海尽头漂浮的城，是关于守护与归途的温柔飞行。</p>
+                <div class="acg-score"><i class="fas fa-star"></i> 10 / 10</div>
+              </div>
+            </article>
+          </div>
+        </section>
+
+        <section class="page-section" id="guest-page">
+          <section class="neo-flat guestbook-input-section">
+            <h2>🌸 写下你的樱花寄语</h2>
+            <form id="guestbook-form">
+              <div class="input-group">
+                <label class="input-label" for="author-input"><i class="fas fa-user-circle"></i> 昵称 / 签名</label>
+                <input class="neo-input" type="text" id="author-input" placeholder="输入你的名字..." required>
+              </div>
+              <div class="input-group">
+                <label class="input-label" for="message-input"><i class="fas fa-pen-nib"></i> 樱花语录</label>
+                <textarea class="neo-textarea" id="message-input" placeholder="写点什么，在樱花树下留下你的足迹吧..." required></textarea>
+              </div>
+              <button type="submit" class="neo-btn form-submit">
+                <i class="fas fa-paper-plane"></i> 放飞留言
+              </button>
+            </form>
+          </section>
+          <div id="sticker-board" class="sticker-board"></div>
+        </section>
+
+        <section class="page-section" id="game-page">
+          <div class="tool-hub glass-panel" id="tool-hub">
+            <header class="tool-hub__header">
+              <div>
+                <span class="tool-hub__eyebrow">TOOLS &amp; PLAY</span>
+                <h2>小工具&amp;小游戏</h2>
+                <p>创作、调色与轻量游戏都在本地浏览器运行，图片不会上传到服务器。</p>
+              </div>
+              <div class="tool-hub__filters" role="group" aria-label="工具分类">
+                <button class="tool-filter is-active" type="button" data-tool-filter="all">全部</button>
+                <button class="tool-filter" type="button" data-tool-filter="tool">创作工具</button>
+                <button class="tool-filter" type="button" data-tool-filter="game">小游戏</button>
+              </div>
+            </header>
+            <div class="tool-grid" id="tool-grid" aria-live="polite"></div>
+          </div>
+        </section>
+      </section>
+      <button class="neo-btn mobile-scene-toggle" id="mobile-scene-toggle" type="button" aria-expanded="false" aria-controls="scene-sidebar">
+        <i class="fas fa-tree"></i> 展开场景托盘
+      </button>
+    </main>
+
+    <footer>
+      <div>🌸 绘于 2026 · 乐享星期日的樱华小屋 🌸</div>
+      <div>风来听风，雨来赏雨，风遇山止，船到岸停。</div>
+      <button class="neo-btn footer-btn" id="replay-intro" type="button">
+        <i class="fas fa-rotate-left"></i> 重放开场动画
+      </button>
+    </footer>
+  </div>
+
+  <div id="article-modal" class="article-modal" hidden>
+    <div class="article-modal__backdrop" data-close-article></div>
+    <article class="article-modal__panel glass-panel" role="dialog" aria-modal="true" aria-label="文章详情">
+      <button class="neo-btn article-modal__close" data-close-article type="button" aria-label="关闭">
+        <i class="fas fa-times"></i>
+      </button>
+      <div class="article-modal__scroll">
+        <div class="article-hero" id="article-hero">🌸</div>
+        <header class="article-header">
+          <span class="article-type" id="article-type">随笔</span>
+          <h2 id="article-title">文章标题</h2>
+          <div class="article-meta" id="article-meta"></div>
+        </header>
+        <div class="article-body" id="article-body"></div>
+      </div>
+    </article>
+  </div>
+
+  <div id="tool-modal" class="tool-modal" hidden>
+    <div class="tool-modal__backdrop" data-close-tool></div>
+    <div class="tool-modal__panel glass-panel" role="dialog" aria-modal="true" aria-label="小工具">
+      <button class="neo-btn tool-modal__close" data-close-tool type="button" aria-label="关闭">
+        <i class="fas fa-times"></i>
+      </button>
+      <header class="tool-modal__header">
+        <span class="tool-modal__icon" id="tool-modal-icon">🌸</span>
+        <div>
+          <h2 id="tool-modal-title">小工具</h2>
+          <p id="tool-modal-desc"></p>
+        </div>
+      </header>
+      <div class="tool-modal__body" id="tool-modal-body"></div>
+    </div>
+  </div>
+
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+
+  <script src="js/sky-bg.js"></script>
+  <script src="js/intro.js"></script>
+  <script src="js/birthday-special.js"></script>
+  <script src="js/scene-registry.js"></script>
+  <script src="js/scene-sidebar.js"></script>
+  <script src="js/main.js"></script>
+  <script src="js/tool-catalog.js"></script>
+  <script src="js/tool-hub.js"></script>
+  <script src="js/player.js"></script>
+</body>
+</html>

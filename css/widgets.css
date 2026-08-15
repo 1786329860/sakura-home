@@ -1,0 +1,290 @@
+/* ============================================================
+   widgets.css — 侧边栏小组件：个人卡片 / 场景 / 时钟天气 / 唱片机
+   ============================================================ */
+
+/* ---- 个人资料 ---- */
+.profile-widget { text-align: center; }
+
+.profile-avatar-container {
+  width: 108px;
+  height: 108px;
+  margin: 0 auto 14px;
+  border-radius: 50%;
+  padding: 6px;
+  background: linear-gradient(135deg, #fff, var(--cloud-shade));
+  box-shadow: 6px 6px 14px var(--neo-shadow), -6px -6px 14px var(--neo-light), inset 0 0 0 2px rgba(255, 255, 255, 0.8);
+}
+
+.profile-avatar {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+  display: block;
+}
+
+.profile-name {
+  font-family: var(--font-serif);
+  font-size: 1.3rem;
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+
+.profile-motto {
+  font-family: var(--font-serif);
+  color: var(--ink-soft);
+  font-size: 0.9rem;
+  line-height: 1.8;
+  margin-bottom: 14px;
+}
+
+.social-links { display: flex; justify-content: center; gap: 10px; }
+
+.social-btn {
+  width: 42px;
+  height: 42px;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.05rem;
+  text-decoration: none;
+}
+
+.social-btn:hover { color: var(--accent); }
+
+/* ---- 场景上下文 ---- */
+.scene-context {
+  border-radius: var(--radius-lg);
+  padding: 18px 20px;
+  color: #fff;
+  position: relative;
+  overflow: hidden;
+  transition: background var(--transition);
+  box-shadow: 0 10px 24px rgba(70, 120, 165, 0.3);
+}
+
+.scene-context::after {
+  content: attr(data-emoji);
+  position: absolute;
+  right: 14px;
+  bottom: 6px;
+  font-size: 2.6rem;
+  opacity: 0.5;
+}
+
+.scene-context__title {
+  font-family: var(--font-serif);
+  font-size: 1.15rem;
+  font-weight: 700;
+  margin-bottom: 6px;
+}
+
+.scene-context__verse {
+  font-family: var(--font-serif);
+  font-size: 0.9rem;
+  line-height: 1.7;
+  opacity: 0.94;
+}
+
+/* ---- 时钟 + 天气 ---- */
+.clock-weather-widget { display: flex; align-items: center; gap: 16px; }
+
+.analog-clock {
+  position: relative;
+  width: 92px;
+  height: 92px;
+  flex-shrink: 0;
+  border-radius: 50%;
+  background: radial-gradient(circle at 34% 30%, #ffffff, #e8f4fd 70%);
+  box-shadow: 6px 6px 14px var(--neo-shadow), -5px -5px 12px var(--neo-light), inset 0 0 0 2px rgba(255, 255, 255, 0.85);
+}
+
+.analog-clock::before {
+  content: "";
+  position: absolute;
+  inset: 7px;
+  border-radius: 50%;
+  background: conic-gradient(from 0deg, rgba(120, 170, 210, 0.14) 0deg, transparent 90deg, rgba(120, 170, 210, 0.14) 180deg, transparent 270deg, rgba(120, 170, 210, 0.14) 360deg);
+}
+
+.analog-clock::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  background:
+    radial-gradient(circle at 50% 8%, #c98aa5 1.5px, transparent 2px),
+    radial-gradient(circle at 50% 92%, #c98aa5 1.5px, transparent 2px),
+    radial-gradient(circle at 8% 50%, #c98aa5 1.5px, transparent 2px),
+    radial-gradient(circle at 92% 50%, #c98aa5 1.5px, transparent 2px);
+}
+
+.clock-hand {
+  position: absolute;
+  left: 50%;
+  bottom: 50%;
+  transform-origin: 50% 100%;
+  border-radius: 4px;
+}
+
+.hand-hour { width: 5px; height: 24px; margin-left: -2.5px; background: var(--ink); }
+.hand-minute { width: 4px; height: 34px; margin-left: -2px; background: var(--ink); }
+.hand-second { width: 2px; height: 38px; margin-left: -1px; background: var(--accent); transition: transform 0.1s linear; }
+
+.clock-center {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 9px;
+  height: 9px;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  background: var(--accent);
+  border: 2px solid #fff;
+}
+
+.weather-info { flex: 1; display: flex; align-items: center; gap: 10px; padding: 12px 14px; }
+
+.weather-icon { font-size: 1.6rem; color: var(--accent); }
+
+.weather-temp { display: block; font-size: 1.15rem; font-weight: 700; color: var(--ink); }
+
+.weather-desc { display: block; font-size: 0.76rem; color: var(--ink-soft); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+
+/* ---- 唱片机 ---- */
+.music-player-widget { text-align: center; }
+
+.vinyl-disc-container {
+  position: relative;
+  width: 148px;
+  height: 148px;
+  margin: 0 auto 12px;
+}
+
+.vinyl-disc {
+  width: 148px;
+  height: 148px;
+  border-radius: 50%;
+  background: repeating-radial-gradient(circle at center, #2b2f36 0 2px, #3a4048 2px 4px);
+  box-shadow: 8px 10px 22px rgba(60, 100, 140, 0.4), inset 0 0 0 2px rgba(255, 255, 255, 0.08);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: vinyl-spin 14s linear infinite;
+  animation-play-state: paused;
+}
+
+.music-player-widget.playing .vinyl-disc { animation-play-state: running; }
+
+@keyframes vinyl-spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.vinyl-label {
+  width: 54px;
+  height: 54px;
+  border-radius: 50%;
+  overflow: hidden;
+  background: linear-gradient(150deg, #fff, var(--cloud-shade));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  box-shadow: inset 0 0 0 2px rgba(120, 160, 200, 0.3);
+}
+
+.vinyl-label img {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  object-fit: cover;
+  display: block;
+}
+
+.player-needle {
+  position: absolute;
+  right: 4px;
+  top: 2px;
+  width: 56px;
+  height: 60px;
+  transform-origin: 100% 0;
+  transform: rotate(28deg);
+  transition: transform 0.5s cubic-bezier(0.3, 0.8, 0.4, 1);
+  z-index: 2;
+  filter: drop-shadow(2px 3px 4px rgba(50, 80, 110, 0.4));
+}
+
+.music-player-widget.playing .player-needle { transform: rotate(8deg); }
+
+.needle-body { position: absolute; top: 0; right: 4px; width: 6px; height: 46px; background: #c9ced6; border-radius: 3px; }
+
+.needle-head { position: absolute; top: 42px; right: 0; width: 16px; height: 10px; background: #e8ecf2; border-radius: 3px; }
+
+.song-info { margin-bottom: 10px; }
+
+.song-title { font-family: var(--font-serif); font-size: 1rem; font-weight: 700; margin-bottom: 3px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+
+.song-artist { font-size: 0.78rem; color: var(--ink-soft); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+
+.progress-bar-container { margin-bottom: 12px; }
+
+.progress-track { height: 12px; position: relative; cursor: pointer; overflow: hidden; }
+
+.progress-fill {
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 0%;
+  background: linear-gradient(90deg, var(--accent), #ffc2d4);
+  border-radius: inherit;
+  transition: width 0.2s linear;
+}
+
+.player-controls { display: flex; justify-content: center; gap: 12px; }
+
+.player-btn {
+  width: 42px;
+  height: 42px;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.play-toggle {
+  width: 52px;
+  height: 52px;
+  font-size: 1.1rem;
+  background: linear-gradient(135deg, var(--accent), #ffd0de);
+  color: #7a2b4a;
+}
+
+.music-player-widget.playing .play-toggle { background: linear-gradient(135deg, #ffcf5c, #ffdf9e); }
+
+/* ---- 生日彩蛋 ---- */
+.birthday-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 250;
+  pointer-events: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.birthday-card {
+  pointer-events: auto;
+  text-align: center;
+  padding: 30px 40px;
+  border-radius: var(--radius-lg);
+  background: rgba(255, 255, 255, 0.92);
+  box-shadow: 0 20px 50px rgba(60, 110, 160, 0.4);
+  animation: modal-pop 0.6s cubic-bezier(0.2, 0.9, 0.3, 1.2) both;
+}
+
+.birthday-card h2 { font-family: var(--font-serif); font-size: 1.8rem; margin: 10px 0; color: #d9678f; }
+
+.birthday-card p { color: var(--ink-soft); margin-bottom: 16px; }

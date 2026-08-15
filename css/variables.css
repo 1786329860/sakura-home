@@ -1,0 +1,65 @@
+/* ============================================================
+   variables.css — 樱花主题设计令牌
+   场景渐变随页面切换：通过 @property 让渐变颜色可过渡
+   （变量名沿用顶层/中层/底层结构，值为樱花场景配色）
+   ============================================================ */
+
+@property --sky-top {
+  syntax: '<color>';
+  inherits: true;
+  initial-value: #f7d9e3;
+}
+@property --sky-mid {
+  syntax: '<color>';
+  inherits: true;
+  initial-value: #fdeef3;
+}
+@property --sky-low {
+  syntax: '<color>';
+  inherits: true;
+  initial-value: #fff7f0;
+}
+
+:root {
+  /* —— 场景樱花色（每个场景通过 body[data-scene] 覆盖）—— */
+  --sky-top: #f7d9e3;
+  --sky-mid: #fdeef3;
+  --sky-low: #fff7f0;
+
+  /* —— 基础色 —— */
+  --sun: #ffc2d4;
+  --sun-glow: rgba(255, 178, 201, 0.5);
+  --cloud: #ffffff;
+  --cloud-shade: #fde4ee;
+  --ink: #4a3a40;          /* 深暖黑文字 */
+  --ink-soft: #8a6a76;     /* 次要文字 */
+  --accent: #d94f7c;       /* 樱粉点缀 */
+  --leaf: #b8d9a8;
+
+  /* —— 拟物面板 —— */
+  --card-bg: rgba(255, 250, 252, 0.78);
+  --card-bg-strong: rgba(255, 250, 252, 0.92);
+  --glass-bg: rgba(255, 246, 249, 0.5);
+  --glass-border: rgba(255, 255, 255, 0.75);
+  --neo-shadow: rgba(217, 79, 124, 0.26);
+  --neo-light: rgba(255, 255, 255, 0.95);
+  --sunken-shadow: rgba(217, 79, 124, 0.28);
+
+  /* —— 形状与动效 —— */
+  --radius-lg: 26px;
+  --radius-md: 18px;
+  --radius-sm: 12px;
+  --transition: 0.35s cubic-bezier(0.25, 0.6, 0.3, 1);
+
+  /* —— 字体 —— */
+  --font-serif: "STKaiti", "KaiTi", "楷体", "Kaiti SC", "FangSong", serif;
+  --font-body: "PingFang SC", "Microsoft YaHei", "Hiragino Sans GB", "Segoe UI", sans-serif;
+}
+
+/* 六个页面的樱花场景配色 */
+body[data-scene="home"]  { --sky-top: #f7d9e3; --sky-mid: #fdeef3; --sky-low: #fff7f0; --accent: #d94f7c; }
+body[data-scene="logs"]  { --sky-top: #f2c8d8; --sky-mid: #fae3ec; --sky-low: #fff9f4; --accent: #e56b96; }
+body[data-scene="acg"]   { --sky-top: #efb7cd; --sky-mid: #fbe0ea; --sky-low: #fff3ee; --accent: #ee7ca5; }
+body[data-scene="notes"] { --sky-top: #e8b0c9; --sky-mid: #f6d6e2; --sky-low: #fdeee4; --accent: #c96a9a; }
+body[data-scene="guest"] { --sky-top: #c3a9d0; --sky-mid: #e3cbe0; --sky-low: #f6edf5; --accent: #a86cae; }
+body[data-scene="game"]  { --sky-top: #f5c4c9; --sky-mid: #fde6e2; --sky-low: #fff9ec; --accent: #f08a5d; }
