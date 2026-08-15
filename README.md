@@ -28,13 +28,16 @@ npx serve .                       # 打开终端提示的地址
 # VS Code：装 Live Server 插件后右键 index.html → Open with Live Server
 ```
 
-## 📦 部署到 GitHub Pages
+## 📦 部署（GitHub + Vercel + Cloudflare）
 
-1. 把整个目录推到 GitHub 仓库
-2. 仓库 Settings → Pages → Source 选 `main` 分支根目录 → Save
-3. 打开 `https://<你的用户名>.github.io/<仓库名>`
+本仓库无任何服务端依赖，纯静态文件，推荐 GitHub + Vercel + Cloudflare 免费组合：
 
-（本仓库无任何服务端依赖，JSON 会被当作静态文件直接提供。）
+1. **推送**：改动提交到 `main` 分支即可（仓库：`1786329860/sakura-home`）
+2. **Vercel**：[vercel.com](https://vercel.com) → Add New Project → 导入 GitHub 仓库 → Framework Preset 选 **Other**，Build Command 留空，Output Directory 填 `./` → Deploy
+3. **自定义域名**：Vercel 项目 Settings → Domains 添加域名；Cloudflare 的 DNS 添加 A 记录指向 `76.76.21.21`（或 CNAME 到 `cname.vercel-dns.com`），开启**橙色云 Proxy**，国内即可访问
+4. 后续每次 `git push`，Vercel 自动重新部署
+
+（备注：`*.vercel.app` 默认域名在国内无法访问，必须绑定自定义域名；无需 ICP 备案。）
 
 ## 🎨 自定义
 
