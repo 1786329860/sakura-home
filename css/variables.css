@@ -62,4 +62,5 @@ body[data-scene="logs"]  { --sky-top: #f2c8d8; --sky-mid: #fae3ec; --sky-low: #f
 body[data-scene="acg"]   { --sky-top: #efb7cd; --sky-mid: #fbe0ea; --sky-low: #fff3ee; --accent: #ee7ca5; }
 body[data-scene="notes"] { --sky-top: #e8b0c9; --sky-mid: #f6d6e2; --sky-low: #fdeee4; --accent: #c96a9a; }
 body[data-scene="guest"] { --sky-top: #c3a9d0; --sky-mid: #e3cbe0; --sky-low: #f6edf5; --accent: #a86cae; }
+body[data-scene="radar"] { --sky-top: #c9b8dd; --sky-mid: #e6daf0; --sky-low: #f7f1fa; --accent: #8f6fb5; }
 body[data-scene="game"]  { --sky-top: #f5c4c9; --sky-mid: #fde6e2; --sky-low: #fff9ec; --accent: #f08a5d; }

@@ -10,6 +10,7 @@
 - **场景系统**：六个页面各绑定一种樱花情绪（樱晴/樱吹雪/花见/夕樱/夜樱/樱游园），切换页面时花色平滑过渡
 - **拟物小组件**：模拟时钟（CSS 指针）、实时天气（open-meteo，失败自动回退）、黑胶唱片机（播放/切歌/进度条拖点）
 - **六个页面**：首页（最近更新）、生活志（时间线）、ACG 收藏（评分卡）、随笔、留言板（本地贴纸墙）、小工具&小游戏
+- **情报雷达**（资讯与内容聚合）：🎁 免费福利 / 🤖 AI 情报 / 🌐 互联网情报 / 📚 每日阅读 四大专区按日期聚合，默认展示最新一天，日期 Pills 快速切换 + 「往期回顾」手风琴折叠展开历史报告；阅读区容器级滚动（`overscroll-behavior: contain`）+ `content-visibility: auto` 长文优化
 - **小工具中心**：樱花色卡（复制 CSS）、花瓣画板（保存 PNG）、花签、接樱花瓣、樱花连连看
 - **生日彩蛋**：`data/settings.json` 里设置 `birthday`（MM-DD），当天自动放气球
 - **文章弹窗**：点任意卡片弹窗阅读全文，本地记录阅读次数
@@ -53,6 +54,7 @@ npx serve .                       # 打开终端提示的地址
 | ACG 收藏 | `data/posts-acg.json`（`emoji` 是卡片横幅图，也可换成图片路径 + 修改 `js/main.js` 的 renderAcg） |
 | 随笔 | `data/posts-notes.json` |
 | 留言板初始内容 | `data/comments.json`（访客新留言存浏览器 localStorage） |
+| 情报雷达内容 | `src/data/radarData.js`（新一天报告：在 `dates` 头部插入日期 + `reports` 添加对应数据即可） |
 | 主题配色（六个场景的樱花色） | `css/variables.css` 底部 `body[data-scene=...]` |
 | 各页面的场景标题/诗句 | `js/scene-registry.js` |
 | 花签签文 | `js/tool-hub.js` 里 `sakura-fortune` 的 `QUOTES` |
@@ -72,6 +74,7 @@ npx serve .                       # 打开终端提示的地址
 │   ├── sky-canvas.css    # 动态背景层
 │   ├── scenes.css        # 场景系统微调
 │   └── tools.css         # 小工具中心
+│   └── radar.css         # 情报雷达（专区卡片 / 日期 Pills / 往期手风琴 / 滚动优化）
 ├── js/
 │   ├── sky-bg.js         # Canvas 樱花粒子
 │   ├── intro.js          # 开场动画
@@ -82,6 +85,10 @@ npx serve .                       # 打开终端提示的地址
 │   ├── player.js         # 唱片机
 │   ├── tool-catalog.js   # 工具注册表
 │   └── tool-hub.js       # 五个工具的实现
+├── src/
+│   ├── data/radarData.js     # 情报雷达数据层（两天全量数据集 + JSDoc 类型约定）
+│   └── components/RadarHub.js# 情报雷达展示组件（日期切换 / 专区折叠 / 往期手风琴）
+├── scripts/                  # 数据完整性校验 + 渲染冒烟测试（node scripts/xxx.js）
 ├── data/                 # 全部内容数据（JSON）
 └── assets/               # 图标 / 头像 / 开场视频（SVG、webp、webm、mp4）
 ```

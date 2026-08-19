@@ -45,13 +45,14 @@ document.addEventListener('DOMContentLoaded', () => {
   const sceneSidebar = window.SkySceneSidebar;
   const sceneRegistry = window.SkySceneRegistry;
 
-  const PAGES = ['home', 'logs', 'acg', 'notes', 'guest', 'game'];
+  const PAGES = ['home', 'logs', 'acg', 'notes', 'guest', 'radar', 'game'];
   const pageTitles = {
     home: '首页',
     logs: '生活志',
     acg: 'ACG 收藏',
     notes: '随笔',
     guest: '留言板',
+    radar: '情报雷达',
     game: '小工具&小游戏',
   };
 

@@ -14,6 +14,7 @@
   <link rel="stylesheet" href="css/sky-canvas.css">
   <link rel="stylesheet" href="css/scenes.css">
   <link rel="stylesheet" href="css/tools.css">
+  <link rel="stylesheet" href="css/radar.css">
 </head>
 <body data-scene="home">
   <div id="dynamic-bg-container" class="dynamic-bg-container">
@@ -65,6 +66,9 @@
           </button>
           <button class="neo-btn nav-btn" data-page="guest" type="button">
             <i class="fas fa-comment-dots"></i> 留言板
+          </button>
+          <button class="neo-btn nav-btn" data-page="radar" type="button">
+            <i class="fas fa-satellite-dish"></i> 情报雷达
           </button>
           <button class="neo-btn nav-btn" data-page="game" type="button">
             <i class="fas fa-puzzle-piece"></i> 小工具&amp;小游戏
@@ -239,6 +243,19 @@
           <div id="sticker-board" class="sticker-board"></div>
         </section>
 
+        <section class="page-section" id="radar-page">
+          <div class="radar-hub glass-panel" id="radar-hub">
+            <header class="radar-hub__header">
+              <div class="radar-hub__heading">
+                <span class="radar-hub__eyebrow">INFO RADAR · 资讯与内容聚合</span>
+                <h2>情报雷达</h2>
+                <p>四大专区按日期聚合：🎁 免费福利 · 🤖 AI 情报 · 🌐 互联网情报 · 📚 每日阅读。</p>
+              </div>
+            </header>
+            <p class="radar-loading">雷达数据加载中…</p>
+          </div>
+        </section>
+
         <section class="page-section" id="game-page">
           <div class="tool-hub glass-panel" id="tool-hub">
             <header class="tool-hub__header">
@@ -317,5 +334,7 @@
   <script src="js/tool-catalog.js"></script>
   <script src="js/tool-hub.js"></script>
   <script src="js/player.js"></script>
+  <script src="src/data/radarData.js"></script>
+  <script src="src/components/RadarHub.js"></script>
 </body>
 </html>
