@@ -51,16 +51,16 @@ console.log('PASS  RadarHub 渲染输出长度 =', hub.innerHTML.length);
 
 const html = hub.innerHTML;
 const checks = [
-  ['日期 Pills 含两个日期', html.includes('data-radar-date="2026-08-17"') && html.includes('data-radar-date="2026-08-16"')],
-  ['默认激活 2026-08-17', /class="radar-date-pill is-active"[^>]*data-radar-date="2026-08-17"/.test(html) || html.includes('data-radar-date="2026-08-17"')],
-  ['四大专区卡片齐全', ['freebies', 'ai', 'web', 'reading'].every(k => html.includes('id="radar-2026-08-17-section-' + k + '"'))],
+  ['日期 Pills 含最新日期', html.includes('data-radar-date="2026-08-20"') && html.includes('data-radar-date="2026-08-19"')],
+  ['默认激活 2026-08-20', /class="radar-date-pill is-active"[^>]*data-radar-date="2026-08-20"/.test(html) || html.includes('data-radar-date="2026-08-20"')],
+  ['四大专区卡片齐全', ['freebies', 'ai', 'web', 'reading'].every(k => html.includes('id="radar-2026-08-20-section-' + k + '"'))],
   ['往期回顾手风琴存在', html.includes('id="radar-archive"') && html.includes('往期回顾')],
   ['往期含 2026-08-16 完整四区', ['freebies', 'ai', 'web', 'reading'].every(k => html.includes('id="radar-archive-2026-08-16-section-' + k + '"'))],
   ['往期专区默认折叠', html.includes('radar-section is-collapsed" id="radar-archive-2026-08-16')],
   ['全部链接带 target=_blank', !/<a [^>]*target=/.test(html.replace(/target="_blank" rel="noopener noreferrer"/g, ''))],
   ['全部链接带 rel=noopener noreferrer', (html.match(/<a class="radar-link"/g) || []).length === (html.match(/target="_blank" rel="noopener noreferrer"/g) || []).length],
-  ['链接总数 18（10+8）', (html.match(/<a class="radar-link"/g) || []).length === 18],
-  ['诗歌逐行渲染（归园田居 10 行）', (html.match(/radar-entry__poem/g) || []).length === 2],
+  ['链接总数 27（5+4+10+8）', (html.match(/<a class="radar-link"/g) || []).length === 27],
+  ['诗歌逐行渲染', (html.match(/radar-entry__poem/g) || []).length >= 3],
   ['引文块渲染', html.includes('radar-entry__quote')],
   ['思考问题渲染', html.includes('radar-entry__question')],
   ['文献出处渲染', html.includes('radar-entry__source')],
@@ -75,3 +75,4 @@ let fail = 0;
 checks.forEach(([name, ok]) => { console.log((ok ? 'PASS' : 'FAIL') + '  ' + name); if (!ok) fail++; });
 console.log('\n结果: ' + (checks.length - fail) + ' 通过, ' + fail + ' 失败');
 process.exit(fail ? 1 : 0);
+

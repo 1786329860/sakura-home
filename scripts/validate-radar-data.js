@@ -1,4 +1,4 @@
-/* 数据完整性校验：核对两天数据集的链接、条目与结构 */
+/* 数据完整性校验：核对雷达数据集的链接、条目与结构 */
 const fs = require('fs');
 const vm = require('vm');
 
@@ -15,11 +15,24 @@ function check(name, cond, extra) {
 }
 
 /* 日期维度 */
-check('dates 默认最新为 2026-08-17', data.dates[0] === '2026-08-17');
-check('dates 含两天', data.dates.length === 2 && data.dates[1] === '2026-08-16');
+check('dates 默认最新为 2026-08-20', data.dates[0] === '2026-08-20');
+check('dates 含四天且新到旧', JSON.stringify(data.dates) === JSON.stringify(['2026-08-20', '2026-08-19', '2026-08-17', '2026-08-16']));
 
 /* 期望链接全集 */
 const EXPECT_LINKS = {
+  '2026-08-19': [
+    'https://apps.apple.com/us/app/toodl-timer/id6757822808',
+    'https://www.giveawayoftheday.com/anymp4-4k-converter/',
+    'https://rtila.com/downloads/free-lifetime-license/',
+    'https://seedesktop.com/',
+    'https://game.giveawayoftheday.com/arcanoid-voxel-arcade/'
+  ],
+  '2026-08-20': [
+    'https://www.giveawayoftheday.com/tipard-fixmp4-video-repair-1-0-36/',
+    'https://winningpc.com/ashampoo-privacy-inspector-free-license-code/',
+    'https://game.giveawayoftheday.com/top-down-3d-pixel-sandbox/',
+    'https://play.google.com/store/apps/details?id=com.eggies.logoguesschallenge'
+  ],
   '2026-08-16': [
     'https://www.giveawayoftheday.com/2026/08/16/',
     'https://game.giveawayoftheday.com/incredible-dracula-academy-of-shadows/',
@@ -67,6 +80,17 @@ for (const date of Object.keys(EXPECT_LINKS)) {
 
 /* 条目数量 */
 const d16 = data.get('2026-08-16'), d17 = data.get('2026-08-17');
+const d19 = data.get('2026-08-19'), d20 = data.get('2026-08-20');
+check('08-19 报告四区齐全', !!d19 && d19.freebies && d19.ai && d19.web && d19.reading);
+check('08-20 报告四区齐全', !!d20 && d20.freebies && d20.ai && d20.web && d20.reading);
+check('08-19 福利共 5 项', d19.freebies.groups.reduce((n,g)=>n+g.items.length,0) === 5);
+check('08-20 福利共 4 项', d20.freebies.groups.reduce((n,g)=>n+g.items.length,0) === 4);
+check('08-19 阅读共 6 篇', d19.reading.entries.length === 6);
+check('08-20 阅读共 6 篇', d20.reading.entries.length === 6);
+check('08-20 Tipard 活动链接', d20.freebies.groups[0].items[0].links[0].url.includes('tipard-fixmp4-video-repair-1-0-36'));
+check('08-20 Logo Guess 地区风险提示', d20.freebies.groups[2].items[1].warning.includes('结算前确认'));
+check('08-20 阿里 AI 云营收 45%', JSON.stringify(d20.ai.global).includes('45%'));
+check('08-20 互联网情报结论存在', d20.web.conclusion.includes('没有发现'));
 check('08-16 福利共 6 项（4S+1A+1B）', d16.freebies.groups.reduce((n,g)=>n+g.items.length,0) === 6);
 check('08-17 福利共 9 项（5S+3A+1B）', d17.freebies.groups.reduce((n,g)=>n+g.items.length,0) === 9);
 check('08-16 阅读共 6 篇', d16.reading.entries.length === 6);
@@ -92,3 +116,4 @@ check('08-17 红楼梦 36501 块石头', JSON.stringify(d16.reading.entries).inc
 
 console.log('\n结果: ' + pass + ' 通过, ' + fail + ' 失败');
 process.exit(fail ? 1 : 0);
+

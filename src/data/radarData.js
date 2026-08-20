@@ -54,6 +54,89 @@
 
   var REPORTS = {
 
+    /* ==================== 2026-08-19 ==================== */
+    '2026-08-19': {
+      freebies: {
+        intro: '严格历史去重后保留 5 项此前未推送、目前仍有效或值得立即检查的福利，优先处理 TOODL Timer、AnyMP4 4K Converter 与 RTILA Studio。',
+        groups: [
+          { grade: 'S', label: 'S级｜立即薅', items: [
+            { rank: 1, name: 'TOODL Timer', platform: 'iPhone', priceWas: '约 US$0.99', priceNow: '当前限时免费', badges: ['🚨 S级', '⏳ 限时免费', '✅ App Store 确认'], details: [{ label: '用途', text: '基于实时交通与 GPS 反推出发时间，支持 ETA、交通提醒、倒计时和 Apple Maps 跳转。' }, { label: '状态', text: 'App Store 显示 Free，版本说明写明 Free for a limited time；无需信用卡，当前未显示订阅要求。' }], links: [{ label: 'App Store 领取入口', url: 'https://apps.apple.com/us/app/toodl-timer/id6757822808' }] }
+          ] },
+          { grade: 'A', label: 'A级｜高价值软件', items: [
+            { rank: 2, name: 'AnyMP4 4K Converter 7.2.50', platform: 'Windows', priceWas: 'US$15.60/月', priceNow: '今日免费活动版本', badges: ['🔥 A级', '⏳ 仅今日窗口', '✅ Giveaway 页面确认'], details: [{ label: '用途', text: '4K/1080p/720p 视频格式转换、压缩、编辑及音视频转换。' }, { label: '授权说明', text: '活动页确认今日免费，但未清楚确认永久许可证；不要与官方 US$49.96 Lifetime License 混同。' }], links: [{ label: '活动领取入口', url: 'https://www.giveawayoftheday.com/anymp4-4k-converter/' }] }
+          ] },
+          { grade: 'B', label: 'B级｜长期福利与小型限免', items: [
+            { rank: 3, name: 'RTILA Studio｜Free Lifetime License', platform: 'Windows/macOS/Linux', priceWas: '—', priceNow: '免费终身许可', badges: ['💡 B级', '♾️ Lifetime'], details: [{ label: '包含', text: '1 台设备、1 个活跃自动化项目，无限运行、AI Assistant、终身更新与 Bug 修复。' }, { label: '限制', text: '不含 Bot 编译、Cloud Run、多线程 Workers、Remote Execution/API、邮件工单支持；每账号限 1 个。' }], links: [{ label: '官方领取入口', url: 'https://rtila.com/downloads/free-lifetime-license/' }] },
+            { rank: 4, name: 'SeeDesktop｜免费终身远程桌面许可证', platform: 'Windows/macOS/Linux', priceWas: '—', priceNow: 'Free Lifetime License', badges: ['💡 B级', '♾️ Lifetime'], details: [{ label: '免费版', text: '1 个并发连接，适合个人运维与轻量 IT；高级远程打印、完整文件传输等 Pro 能力需付费。' }], links: [{ label: '官方入口', url: 'https://seedesktop.com/' }] },
+            { rank: 5, name: 'Arcanoid Voxel Arcade', platform: 'Windows 游戏', priceWas: 'US$5', priceNow: '今日免费', badges: ['💡 B级', '⏳ 仅今日窗口'], details: [{ label: '类型', text: '街机/打砖块式小游戏，控制挡板反弹投射物。' }], links: [{ label: '活动领取入口', url: 'https://game.giveawayoftheday.com/arcanoid-voxel-arcade/' }] }
+          ] }
+        ],
+        dedupNote: '主动排除 Walkout Song DJ、Backblaze B2 Explorer、Yellow Note 等价格状态矛盾项目；Epic Caravan SandWitch、Vovsoft Batch Image Converter、阿里云百炼、AMD AI Developer Program、Microsoft for Startups 等已推送项目今日无实质变化，不重复推送。',
+        orderNote: '建议领取顺序：TOODL Timer → AnyMP4 4K Converter → RTILA Studio；SeeDesktop 按需领取，Arcanoid Voxel Arcade 优先级较低。'
+      },
+      ai: {
+        scope: '统计口径：北京时间 2026-08-19，当天新增优先；严格去重，不把前几天事件重新包装。',
+        chinaTitle: '🇨🇳 中国 AI 福利', china: [{ name: '今日无新增中国 AI 高价值福利', lines: ['阿里云百炼、腾讯混元、火山方舟/豆包、智谱 GLM、AMD×ModelScope 等此前福利没有额度增加、延期或新增权益。MiniMax 免费用户速率限制属于账户政策，不等同于今日新 Credits。'] }],
+        globalTitle: '🌍 今日重大 AI 情报', global: ['中国外交部反对在全球 AI 竞争中人为划分排他性阵营，主张各国自主选择 AI 合作伙伴；这显示竞争正扩展到数字主权、云、数据治理、模型标准和 API 生态。来源：Reuters，2026-08-19。', 'Reuters Breakingviews 将 Z.ai（智谱）视为中国前沿模型竞争中的潜在逆袭者，反映独立模型公司的研发、融资与商业化压力；这不是新的模型发布。'],
+        conclusionTitle: '📌 今日判断', conclusion: '8 月 19 日不是旗舰模型发布日；更值得注意的是 AI 竞争向国际规则、技术阵营与长期资本能力扩展。OpenAI 今日无新旗舰模型、核心功能、价格变化或高价值免费活动。', orderNote: '福利栏宁可留空，也不重复昨日及此前已核验项目。', sourcesNote: '核验来源：Reuters、Reuters Breakingviews、各厂商官方文档。'
+      },
+      web: {
+        conclusion: '2026-08-19 截至检索时点没有达到“当天首次发生/公布/实质进展 + 影响面足够大”门槛的可靠全球互联网重大事件，宁可短报也不以旧闻补数。',
+        excludedTitle: '重点核验但主动排除', excluded: ['Cisco PSIRT 8 月 19 日安全公告预告尚未出现正式漏洞详情，暂不计为已发生事件。', '欧盟 AWS/Azure DMA gatekeeper 初步意见（6-25）与 Cloud and AI Development Act（6-3）均非今日新进展。', 'Cloudflare/Chrome/Firefox/Edge PACT 人机证明协议（6-22）与 Google Chrome AI 漏洞计划（7-30）均为既有趋势。'],
+        structuralTitle: '接下来关注', structural: ['Cisco 后续正式披露是否出现高危/关键级远程利用或大范围在网设备影响。']
+      },
+      reading: {
+        keyword: '世界越大，判断越轻：我们看到的是世界，还是自己熟悉的那一小块世界？',
+        entries: [
+          { no: '01', title: '《庄子·秋水》：真正危险的不是无知，而是不知道自己的尺度', blocks: [{ type: 'quote', html: '<p>“井蛙不可以语于海者，拘于虚也；夏虫不可以语于冰者，笃于时也；曲士不可以语于道者，束于教也。”</p>' }, { type: 'prose', html: '<p>庄子列出空间、时间与教育观念三种认知牢笼。算法也能把论文、数据、专家和同温层围成一口豪华的井，真正重要的是察觉井壁在哪里。</p>' }, { type: 'question', text: '你最近有没有因接触另一种生活或知识而改变判断？' }, { type: 'source', text: '来源：中国哲学书电子化计划《庄子·秋水》。' }] },
+          { no: '02', title: '《论语·先进》“侍坐”：孔子为什么赞成看似没有事业心的人？', blocks: [{ type: 'quote', html: '<p>“莫春者，春服既成……浴乎沂，风乎舞雩，咏而归。”孔子曰：“吾与点也。”</p>' }, { type: 'prose', html: '<p>曾皙回答的不是要做成什么，而是希望世界最终呈现怎样的生活图景：政治与事业最后应抵达普通人能安心生活的暮春下午。</p>' }, { type: 'question', text: '如果拿掉职位、收入与成就，你会用什么具体场景描述想过的生活？' }, { type: 'source', text: '来源：中国哲学书电子化计划《论语·先进》及《四书章句集注》。' }] },
+          { no: '03', title: '塞万提斯《堂吉诃德》：风车为什么四百年后仍然没有倒下？', blocks: [{ type: 'prose', html: '<p>堂吉诃德把风车认作巨人，失败后又以魔法师解释事实。人最难放弃的不是错误事实，而是让事实有意义的自我故事；桑丘与堂吉诃德则互相改变。</p>' }, { type: 'question', text: '如果一个事实会摧毁关于自己的整个故事，你会选择相信事实吗？' }, { type: 'source', text: '原作：Project Gutenberg；讲解：Yale Open Courses，Roberto González Echevarría。' }] },
+          { no: '04', title: 'Robert Frost《After Apple-Picking》：得到一切以后为什么反而疲倦？', blocks: [{ type: 'quote', html: '<p>“For I have had too much / Of apple-picking: I am overtired / Of the great harvest I myself desired.”</p>' }, { type: 'prose', html: '<p>诗写的不是梦想破灭，而是愿望实现后仍可能疲惫；丰收制造价值标准，苹果太多后每一只都更容易被判定为不够好。</p>' }, { type: 'question', text: '如果真的得到现在拼命想要的东西，然后呢？' }, { type: 'source', text: '文本：Robert Frost《After Apple-Picking》；参考 Poetry Foundation。' }] },
+          { no: '05', title: '李白《玉阶怨》：一句抱怨都没有，为什么整首诗都是怨？', blocks: [{ type: 'poem', lines: ['玉阶生白露，', '夜久侵罗袜。', '却下水晶帘，', '玲珑望秋月。'] }, { type: 'prose', html: '<p>诗删掉了谁未到、为何未到和她为何不说，只留下露水、罗袜、帘与月。阅读时也要问：作者故意没有写什么？</p>' }, { type: 'question', text: '你喜欢的作品里，有没有未说出口却比台词更强烈的情感？' }, { type: 'source', text: '原诗为公版；参考 Ezra Pound 英译附注及 Poetry Foundation。' }] },
+          { no: '06', title: '今日收束｜世界越大，判断越轻', blocks: [{ type: 'prose', html: '<p>河伯见海后不再把自己的尺度当天下尺度；曾皙描述权力最终应保护的普通生活；堂吉诃德拒绝让现实修改故事；Frost 站在愿望实现之后。成熟也许是见过的世界越大，越知道答案应该有多轻。</p>' }, { type: 'source', text: '延伸来源：Chinese Text Project、Stanford Encyclopedia of Philosophy、Project Gutenberg、Open Yale Courses、Poetry Foundation。' }] }
+        ]
+      }
+    },
+
+    /* ==================== 2026-08-20 ==================== */
+    '2026-08-20': {
+      freebies: {
+        intro: '严格按历史日报去重并二次核验官方/活动页面后，本期保留 4 项此前未正式推送、当前仍值得领取的福利，其中 3 项建议优先处理。',
+        groups: [
+          { grade: 'S', label: 'S级｜立即薅', items: [{ rank: 1, name: 'Tipard FixMP4 – Video Repair', platform: 'Windows', priceWas: 'US$24/月', priceNow: '今日免费活动授权', badges: ['🚨 S级', '⏳ 仅今日窗口'], details: [{ label: '用途', text: '修复损坏或无法播放的视频文件。' }, { label: '状态', text: 'Giveaway 活动页确认今日免费，需在活动窗口内完成领取。' }], links: [{ label: '活动领取入口', url: 'https://www.giveawayoftheday.com/tipard-fixmp4-video-repair-1-0-36/' }] }] },
+          { grade: 'A', label: 'A级｜高价值软件', items: [{ rank: 2, name: 'Ashampoo Privacy Inspector 2', platform: 'Windows', priceWas: 'US$40 Lifetime', priceNow: '免费 Lifetime Giveaway', badges: ['🔥 A级', '♾️ Lifetime', '✅ 当前活动页确认'], details: [{ label: '用途', text: '分析 Windows 使用记录、浏览器活动、搜索和登录痕迹，并提供隐私清理、DNS Cache、Internet Cleaner、File Wiper。' }, { label: '限制', text: '1 台 Windows 10/11 设备；非商业用途，不含未来升级与技术支持；需要 Ashampoo 账号激活。' }], links: [{ label: '活动领取入口', url: 'https://winningpc.com/ashampoo-privacy-inspector-free-license-code/' }] }] },
+          { grade: 'B', label: 'B级｜其它限免', items: [
+            { rank: 3, name: 'Top Down 3D Pixel Sandbox', platform: 'Windows 游戏', priceWas: 'US$5', priceNow: '今日免费', badges: ['💡 B级', '⏳ 2026-08-20 当天'], details: [{ label: '类型', text: '3D 像素沙盒，可使用不同方块构建和破坏世界。' }], links: [{ label: '活动领取入口', url: 'https://game.giveawayoftheday.com/top-down-3d-pixel-sandbox/' }] },
+            { rank: 4, name: 'Logo Guess Challenge', platform: 'Android', priceWas: 'US$2.49', priceNow: '可能免费（请结算前确认）', badges: ['⚪ C级', '⚠️ 地区/缓存状态差异'], details: [{ label: '用途', text: '品牌 Logo 猜谜游戏，包含广告和应用内购买。Google Play 聚合页显示 0 元，但详情页可能仍显示 US$2.49。' }], links: [{ label: 'Google Play 入口', url: 'https://play.google.com/store/apps/details?id=com.eggies.logoguesschallenge' }], warning: '请打开自己的 Google Play 页面，结算前确认价格为 0 元；若显示收费请不要领取。' }
+          ] }
+        ],
+        dedupNote: '未重复推送阿里云百炼、火山方舟/豆包、智谱 GLM、AMD×ModelScope 等已报告福利；价格或授权状态不清晰的项目不纳入。',
+        orderNote: '建议领取顺序：Tipard FixMP4 → Ashampoo Privacy Inspector 2 → Top Down 3D Pixel Sandbox；最后再检查 Logo Guess Challenge 是否在所在地区显示 0 元。'
+      },
+      ai: {
+        scope: '统计口径：北京时间 2026-08-20，当天新增优先，严格历史去重。',
+        chinaTitle: '🇨🇳 中国 AI 福利', china: [{ name: '今日无新增高价值免费福利', lines: ['复查百炼、百度千帆、腾讯混元、火山方舟/豆包、智谱 GLM、Kimi、MiniMax、ModelScope；现有额度此前已提醒，MiniMax 速率限制与智谱新用户 Tokens 均非今日新增。'] }],
+        globalTitle: '🌍 今日重大 AI 情报', global: ['阿里巴巴公布季度数据：营收同比增长约 9% 至 2689.5 亿元，AI 云与计算服务收入同比增长 45% 至 484.4 亿元，资本开支同比增 75% 至 676.8 亿元。AI 进入规模化商业化阶段。来源：Reuters，2026-08-20。', 'Guidelight AI Standards 评估 OpenAI、Anthropic、Google、xAI、Meta 的模型控制能力，最高仅 C+，显示 Agent 隔离、监控、权限与第三方审查仍不成熟。来源：Reuters / Guidelight。', '宇树 CEO 王兴兴称具身智能正走向机器人的 ChatGPT 时刻，但软件能力跃迁可能仍需 2–3 年甚至 5–10 年，反映 AI 竞争向世界模型、机器人和真实世界数据迁移。来源：Reuters，2026-08-20。'],
+        conclusionTitle: '📌 今日判断', conclusion: '今天最重要的不是新增模型，而是 AI 商业化接受财报检验、Agent 安全从内容安全升级为系统安全，以及具身智能可能成为下一主战场。OpenAI 今日无新旗舰模型或高价值活动。', orderNote: '福利栏宁可留空，也不重复旧活动。', sourcesNote: '核验来源：Reuters、Guidelight AI Standards、厂商官方页面。'
+      },
+      web: {
+        conclusion: '2026-08-20 没有发现同时满足当天新增、影响范围足够大且非普通更新/营销的全球互联网重大事件。',
+        excludedTitle: '重点核验但主动排除', excluded: ['欧盟 DMA 近期重大动态仍停留在 7 月；AWS/Azure gatekeeper 初步立场公布于 6 月 25 日，非今日决定。', '未核验到今日首次披露且达到全球影响门槛的高危网络安全事件；Cisco 安全活动属于研讨会。', '云服务维护、API 升级、企业软件版本节点等常规商业变化不纳入。'],
+        structuralTitle: '接下来关注', structural: ['Google 是否在 8 月底完成 DMA Search 数据共享节点。', '欧盟是否推进 AWS/Azure gatekeeper 指定。', '浏览器、CDN 与网站围绕 Agent 流量身份和隐私访问控制的新标准。', 'CISA/厂商确认正在大规模利用的关键基础设施漏洞。']
+      },
+      reading: {
+        keyword: '朋友、人格与希望：什么值得依靠，什么不值得？',
+        entries: [
+          { no: '01', title: '亚里士多德《尼各马可伦理学》：朋友不是生活的装饰', blocks: [{ type: 'prose', html: '<p>亚里士多德区分因有用、因愉快与因认可对方品格而形成的友谊。最高形态需要时间、共同生活与相互关照，真正的朋友希望对方得好，不只把对方当资源。</p>' }, { type: 'question', text: '拿掉“对我有用”和“让我开心”，你还有哪些关系是因为真正欣赏并关心这个人本身？' }, { type: 'source', text: '来源：Stanford Encyclopedia of Philosophy，Aristotle’s Ethics / Friendship。' }] },
+          { no: '02', title: '孟子与苏辙：“浩然之气”不是情绪高涨', blocks: [{ type: 'prose', html: '<p>浩然之气来自长期正直选择形成的内在秩序，不是热血或强势表演。苏辙以水为喻：顺地势而行，众水汇集后自然有不可阻挡的力量。</p>' }, { type: 'question', text: '如果职位、收入和他人评价暂时消失，你还有什么标准判断今天该做或不该做？' }, { type: 'source', text: '来源：中国哲学书电子化计划所收苏辙《吴氏浩然堂记》，并参照《孟子》。' }] },
+          { no: '03', title: '陶渊明：我们读到的陶渊明也是后世共同塑造的陶渊明', blocks: [{ type: 'prose', html: '<p>《归园田居》不只是辞官归隐，也是在重新校准感官。田晓菲关于手稿文化的研究提醒我们：经典形象由抄写者、编者、读者与评论家共同塑造。</p>' }, { type: 'question', text: '读《归园田居》时，先圈出空间、声音、植物和动物词语，看看身体怎样从樊笼重新安放到世界。' }, { type: 'source', text: '参考：田晓菲《Tao Yuanming and Manuscript Culture》。' }] },
+          { no: '04', title: 'James Joyce《The Dead》：一句没有发生过的爱情，怎样改变一场婚姻', blocks: [{ type: 'prose', html: '<p>Gabriel 得知妻子 Gretta 仍被已故少年 Michael Furey 的记忆触动，自我感开始坍缩。雪覆盖生者与死者，亲密也不意味着拥有另一个人的全部历史。</p>' }, { type: 'question', text: '你是否允许最亲近的人拥有一部分与你无关、你也无法进入的过去？' }, { type: 'source', text: '文本：James Joyce《Dubliners》“The Dead”，Project Gutenberg 公版文本。' }] },
+          { no: '05', title: 'Emily Dickinson《“Hope” is the thing with feathers》：希望为什么是一只不索取报酬的鸟', blocks: [{ type: 'prose', html: '<p>希望不是“明天一定更好”的预测，而是在风暴中仍唱着无歌词曲调的持续性；它不保证结果，也不向人索取回报。</p>' }, { type: 'question', text: '有没有一种东西在没有证据证明会成功时，仍让你继续往前？' }, { type: 'source', text: '参考：Poetry Foundation 权威页面与朗读资料。' }] },
+          { no: '06', title: '《世说新语》：真正高级的人物描写，有时只需要一个动作', blocks: [{ type: 'prose', html: '<p>古典叙事常用一句话、一个动作或一次应答完成人物摄影。阅读时先观察压力来到那一秒身体怎么动、话怎么说，而不是急着总结寓意。</p>' }, { type: 'source', text: '—— 每日阅读 · 2026-08-20' }] }
+        ]
+      }
+    },
+
     /* ==================== 2026-08-16 ==================== */
     '2026-08-16': {
 
@@ -618,7 +701,7 @@
 
   window.SkyRadarData = {
     /** 所有报告日期，新 → 旧（默认展示最新一天） */
-    dates: ['2026-08-17', '2026-08-16'],
+    dates: ['2026-08-20', '2026-08-19', '2026-08-17', '2026-08-16'],
     /** 专区定义 */
     sections: SECTIONS,
     /** 日期 → 全量报告 */
@@ -631,3 +714,4 @@
     }
   };
 })();
+
