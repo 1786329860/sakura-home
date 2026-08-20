@@ -209,7 +209,7 @@ document.addEventListener('DOMContentLoaded', () => {
     notes: { status: 'loading', items: [] },
   };
 
-  const TYPE_LABEL = { life: '生活日志', acg: 'ACG 收藏', note: '随笔' };
+  const TYPE_LABEL = { life: '生活日志', acg: 'ACG 收藏', note: '随笔', radarReading: '每日阅读' };
 
   function renderLogs() {
     const container = document.querySelector('.timeline-container');
@@ -279,19 +279,40 @@ document.addEventListener('DOMContentLoaded', () => {
       ...cmsState.life.items.map((p) => ({ ...p, kind: 'life' })),
       ...cmsState.acg.items.map((p) => ({ ...p, kind: 'acg' })),
       ...cmsState.notes.items.map((p) => ({ ...p, kind: 'note' })),
-    ].sort((a, b) => String(b.date).localeCompare(String(a.date))).slice(0, 6);
+    ];
+
+    const radar = window.SkyRadarData;
+    const latestRadarDate = radar && radar.latestDate ? radar.latestDate() : null;
+    const latestReading = latestRadarDate && radar.get(latestRadarDate).reading;
+    if (latestReading && latestReading.entries && latestReading.entries.length) {
+      all.push({
+        id: 'radar-reading-' + latestRadarDate,
+        kind: 'radarReading',
+        date: latestRadarDate,
+        title: latestReading.entries[0].title,
+        summary: latestReading.keyword || '最新每日阅读已更新，点击进入情报雷达。',
+        radarDate: latestRadarDate
+      });
+    }
+
+    all.sort((a, b) => String(b.date).localeCompare(String(a.date))).splice(6);
 
     if (!all.length) return;
 
     box.hidden = false;
     grid.innerHTML = all.map((p) =>
-      '<button type="button" class="neo-flat update-card" data-post="' + escapeHtml(p.id) + '">' +
+      '<button type="button" class="neo-flat update-card"' +
+      (p.kind === 'radarReading' ? ' data-recent-radar="' + escapeHtml(p.radarDate) + '"' : ' data-post="' + escapeHtml(p.id) + '"') + '>' +
       '  <span class="update-type">' + TYPE_LABEL[p.kind] + '</span>' +
       '  <h3>' + escapeHtml(p.title) + '</h3>' +
       '  <p>' + escapeHtml(p.summary || '') + '</p>' +
       '  <span class="update-date">' + escapeHtml(p.date) + '</span>' +
       '</button>'
     ).join('');
+
+    grid.querySelectorAll('[data-recent-radar]').forEach((el) => {
+      el.addEventListener('click', () => switchPage('radar', true));
+    });
   }
 
   async function loadPosts() {
@@ -458,3 +479,4 @@ document.addEventListener('DOMContentLoaded', () => {
 
   boot();
 });
+

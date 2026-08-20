@@ -16,7 +16,7 @@ function check(name, cond, extra) {
 
 /* 日期维度 */
 check('dates 默认最新为 2026-08-20', data.dates[0] === '2026-08-20');
-check('dates 含四天且新到旧', JSON.stringify(data.dates) === JSON.stringify(['2026-08-20', '2026-08-19', '2026-08-17', '2026-08-16']));
+check('dates 含五天且新到旧', JSON.stringify(data.dates) === JSON.stringify(['2026-08-20', '2026-08-19', '2026-08-18', '2026-08-17', '2026-08-16']));
 
 /* 期望链接全集 */
 const EXPECT_LINKS = {
@@ -32,6 +32,14 @@ const EXPECT_LINKS = {
     'https://winningpc.com/ashampoo-privacy-inspector-free-license-code/',
     'https://game.giveawayoftheday.com/top-down-3d-pixel-sandbox/',
     'https://play.google.com/store/apps/details?id=com.eggies.logoguesschallenge'
+  ],
+  '2026-08-18': [
+    'https://www.softorbits.net/actions/getfreekey.html?pid=2&a_aid=70',
+    'https://winningpc.com/multcloud-premium-giveaway-free-account/',
+    'https://www.acdsee.com/en/courses/alec-watson/',
+    'https://play.google.com/store/apps/details?id=tv.remote.control.universal.smart.plus.tcl',
+    'https://play.google.com/store/apps/details?id=spy.camera.network.scanner.pro',
+    'https://play.google.com/store/apps/details?id=com.starblaster.athree.epl.gp'
   ],
   '2026-08-16': [
     'https://www.giveawayoftheday.com/2026/08/16/',
@@ -80,13 +88,17 @@ for (const date of Object.keys(EXPECT_LINKS)) {
 
 /* 条目数量 */
 const d16 = data.get('2026-08-16'), d17 = data.get('2026-08-17');
-const d19 = data.get('2026-08-19'), d20 = data.get('2026-08-20');
+const d18 = data.get('2026-08-18'), d19 = data.get('2026-08-19'), d20 = data.get('2026-08-20');
+check('08-18 报告四区齐全', !!d18 && d18.freebies && d18.ai && d18.web && d18.reading);
 check('08-19 报告四区齐全', !!d19 && d19.freebies && d19.ai && d19.web && d19.reading);
 check('08-20 报告四区齐全', !!d20 && d20.freebies && d20.ai && d20.web && d20.reading);
 check('08-19 福利共 5 项', d19.freebies.groups.reduce((n,g)=>n+g.items.length,0) === 5);
 check('08-20 福利共 4 项', d20.freebies.groups.reduce((n,g)=>n+g.items.length,0) === 4);
+check('08-18 福利共 6 项', d18.freebies.groups.reduce((n,g)=>n+g.items.length,0) === 6);
 check('08-19 阅读共 6 篇', d19.reading.entries.length === 6);
 check('08-20 阅读共 6 篇', d20.reading.entries.length === 6);
+check('08-18 阅读共 6 篇', d18.reading.entries.length === 6);
+check('08-18 AMD×魔搭 1000 小时以上算力', JSON.stringify(d18.ai.china).includes('1000 小时以上'));
 check('08-20 Tipard 活动链接', d20.freebies.groups[0].items[0].links[0].url.includes('tipard-fixmp4-video-repair-1-0-36'));
 check('08-20 Logo Guess 地区风险提示', d20.freebies.groups[2].items[1].warning.includes('结算前确认'));
 check('08-20 阿里 AI 云营收 45%', JSON.stringify(d20.ai.global).includes('45%'));

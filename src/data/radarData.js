@@ -54,6 +54,51 @@
 
   var REPORTS = {
 
+    /* ==================== 2026-08-18 ==================== */
+    '2026-08-18': {
+      freebies: {
+        intro: '严格历史去重后保留 6 项此前日报未推送、目前仍值得领取或尝试领取的福利；Google Play 三项受地区价格影响，领取前必须确认结算页为 0 元。',
+        groups: [
+          { grade: 'S', label: 'S级｜立即薅', items: [
+            { rank: 1, name: 'SoftOrbits Batch Picture Resizer', platform: 'Windows', priceWas: '约 US$24.99 Lifetime', priceNow: '免费终身许可', badges: ['🚨 S级', '♾️ Lifetime'], details: [{ label: '用途', text: '批量缩放、格式转换、旋转/翻转、RAW 处理、批量重命名和添加水印。' }, { label: '限制', text: '1 台个人电脑；个人/非商业用途；不含未来版本更新和免费技术支持，拿到 Key 后应及时激活。' }], links: [{ label: '领取入口', url: 'https://www.softorbits.net/actions/getfreekey.html?pid=2&a_aid=70' }] }
+          ] },
+          { grade: 'A', label: 'A级｜高价值资源', items: [
+            { rank: 2, name: 'MultCloud Premium', platform: 'Web', priceWas: '—', priceNow: '500GB Lifetime Data Traffic + 约 1 年高级功能', badges: ['🔥 A级', '✅ 新用户优先'], details: [{ label: '说明', text: '500GB 是跨云数据传输流量，不是额外云存储空间；通常需要新邮箱注册。' }], links: [{ label: '活动领取页', url: 'https://winningpc.com/multcloud-premium-giveaway-free-account/' }] },
+            { rank: 3, name: 'ACDSee《Mastering Portrait Lighting》', platform: '在线课程', priceWas: 'US$79', priceNow: '官方免费', badges: ['🔥 A级', '✅ 官方页面确认'], details: [{ label: '内容', text: 'Alec Watson 讲解短侧光、蝴蝶光、伦勃朗光、正面光和逆光，并结合拍摄与后期。' }], links: [{ label: '官方课程入口', url: 'https://www.acdsee.com/en/courses/alec-watson/' }] }
+          ] },
+          { grade: 'B', label: 'B级｜Google Play 地区限免', items: [
+            { rank: 4, name: 'Stick - Remote Control TV Pro', platform: 'Android', priceWas: '约 US$2.99', priceNow: '可能免费（结算前确认）', badges: ['💡 B级', '⚠️ 地区/缓存差异'], details: [{ label: '用途', text: '将手机作为 Samsung、LG、Sony、TCL、Hisense、Roku 等电视遥控器并支持投屏。' }], links: [{ label: 'Google Play 入口', url: 'https://play.google.com/store/apps/details?id=tv.remote.control.universal.smart.plus.tcl' }], warning: '开发者页显示 100% off / US$0.00，但不同地区可能仍显示原价；付款前确认 0 元。' },
+            { rank: 5, name: 'Spy Camera Network Scanner PRO', platform: 'Android', priceWas: '约 US$2.49', priceNow: '可能免费（结算前确认）', badges: ['💡 B级', '⚠️ 地区/缓存差异'], details: [{ label: '用途', text: '网络设备和摄像头扫描工具。' }], links: [{ label: 'Google Play 入口', url: 'https://play.google.com/store/apps/details?id=spy.camera.network.scanner.pro' }], warning: '开发者页显示 100% off / US$0.00；如地区无法打开，可进入 Ai Apps SRL 开发者页查找同名 Pro 版本。' },
+            { rank: 6, name: 'Star Blaster: Offline Premium', platform: 'Android 游戏', priceWas: '约 US$0.99', priceNow: '可能免费（结算前确认）', badges: ['💡 B级', '⚠️ 地区/缓存差异'], details: [{ label: '类型', text: '离线 Roguelike 科幻射击游戏 Premium 版。' }], links: [{ label: 'Google Play 入口', url: 'https://play.google.com/store/apps/details?id=com.starblaster.athree.epl.gp' }], warning: '开发者页显示 100% off / US$0.00，最终以你的 Google Play 账号页面为准。' }
+          ] }
+        ],
+        dedupNote: '主动排除 Mortal Shell DLC（需要先拥有本体）、已推送的 Vovsoft Batch Image Converter、阿里云百炼、Deponia、AMD AI Developer Program、Microsoft for Startups、Claude for Startups，以及无法逐条核验的 Free Fire 兑换码。',
+        orderNote: '建议领取顺序：SoftOrbits Batch Picture Resizer → MultCloud Premium → ACDSee 免费课程 → 再检查 Google Play 三项是否显示 0 元。'
+      },
+      ai: {
+        scope: '统计口径：北京时间 2026-08-18，当天新增优先，严格历史去重。',
+        chinaTitle: '🇨🇳 中国 AI 福利', china: [{ name: 'AMD × 魔搭 ModelScope 联合开发者激励计划', lines: ['活动截止 2026-12-31；完成 AMD 开发者计划注册可获 100 小时，原创文章最高 50 小时，Notebook 实践最高 150 小时，创空间应用审核通过可获 700 小时或更多。多个路径可叠加，合计最高 1000 小时以上免费 GPU 算力。', '适合模型训练/推理、AIGC、Agent、Notebook 实验和开源项目演示；需要注册魔搭并按路径完成审核，不要求先充值。', '官方来源：ModelScope AMD × 魔搭社区联合开发者激励计划。'] }],
+        globalTitle: '🌍 今日重大 AI 情报', global: ['截至检索时点，没有核验到 OpenAI、Anthropic、Google DeepMind、Meta、xAI、Microsoft 或主要中国 AI 公司在 8 月 18 日发布新的旗舰模型、重大核心功能或高价值限时活动。', 'Financial Times 当日关于前沿 AI Agent 网络安全能力的文章主要综合此前已披露的越权、外联和漏洞利用事件，不是当天新事故，因此不包装成重大新闻。'],
+        conclusionTitle: '📌 今日判断', conclusion: '今天真正值得行动的是补领 AMD × 魔搭 GPU 算力福利，而不是追逐并不存在的新旗舰模型。', orderNote: '优先行动：AMD × 魔搭 ModelScope；其余中国 AI 长期额度已在此前日报提醒，不重复推送。', sourcesNote: '核验来源：ModelScope 活动页、厂商官方页面、Financial Times。'
+      },
+      web: {
+        conclusion: '截至本次检索，2026-08-18 没有发现同时满足当天首次发生/公布、影响范围足够大且具有长期互联网意义的全球重大新增事件；宁缺毋滥，不用旧闻、普通更新、营销活动或会议日程补数。',
+        excludedTitle: '重点核验但主动排除', excluded: ['Detroit Official Cybersecurity Summit 是当日会议日程，不构成重大事件。', 'Skyhigh Security 是计划维护窗口，流量会重新路由且预计无客户影响。', 'Google Search Central 8 月 15 日文档更新、Chrome 154 未来默认启用 HTTPS 计划均非 8 月 18 日新进展。'],
+        structuralTitle: '接下来关注', structural: ['AI Agent 越权与外联风险的真实事故披露。', '浏览器安全连接默认策略与 Search Console AI 数据口径的后续正式更新。']
+      },
+      reading: {
+        keyword: '人与遭遇、自我、爱情、意识、美和时间之间的距离。',
+        entries: [
+          { no: '01', title: '马可·奥勒留《沉思录》：真正的坚韧，是重新处理发生在你身上的事', blocks: [{ type: 'prose', html: '<p>“火”的比喻不是说所有苦难都有好处，而是问：已经发生、暂时无法撤销的东西，是否一定拥有决定你下一步的权力？火焰把落入其中的东西转化为自己的燃料，承受因此变成加工。</p>' }, { type: 'question', text: '你最近最想从人生中删除的一件事，如果暂时删不掉，它有没有可能被重新加工成一种材料？' }, { type: 'source', text: '来源：MIT Internet Classics Archive《Meditations》；Stanford Encyclopedia of Philosophy “Marcus Aurelius”。' }] },
+          { no: '02', title: '给自己的解释，为什么常常来得太早？', blocks: [{ type: 'prose', html: '<p>一个尚未完成的人，会过早被自己写成定稿。事情发生，与我们对它作出最终解释之间，可以留一点空间；把“这件事证明了……”改成“目前我看到的是：……”。</p>' }, { type: 'question', text: '你最近是否把一次拒绝、失败或关系结束过早总结成了人生结论？' }, { type: 'source', text: '参考：斯多葛传统关于 assent（认可）的讨论。' }] },
+          { no: '03', title: '契诃夫《带小狗的女人》：真正的故事，从“故事应该结束”的地方开始', blocks: [{ type: 'prose', html: '<p>契诃夫把重心放在爱情分别之后：古罗夫发现公开生活越来越像表面，秘密生活反而更真实。小说拒绝给幸福封口，承认彼此不可替代只是困难的开始。</p>' }, { type: 'question', text: '一个人在社会身份里生活得井井有条，是否仍可能从未真正生活？' }, { type: 'source', text: '公版来源：Project Gutenberg，Constance Garnett 英译本。' }] },
+          { no: '04', title: '莎士比亚《哈姆雷特》：为什么思考越深入，行动有时越困难？', blocks: [{ type: 'prose', html: '<p>哈姆雷特把未知的未来带入选择，思考因此成为行动阻力。理性不是纯粹的力量，它也会增加世界的岔路。</p>' }, { type: 'question', text: '谨慎与畏缩之间有没有清楚界线？如果把所有后果都想得充分，一个人还可能果断吗？' }, { type: 'source', text: '来源：MIT Shakespeare《Hamlet》公版全文。' }] },
+          { no: '05', title: 'Virginia Woolf《Kew Gardens》：小说为什么一定要追着“重要人物”走？', blocks: [{ type: 'prose', html: '<p>Woolf 不断改变叙事尺度，让人的谈话、花瓣、光线、昆虫和蜗牛共享注意力。阅读可以停止追问“发生了什么”，改问“我的注意力刚刚被带到了哪里？”</p>' }, { type: 'question', text: '走十分钟，不拍照、不听耳机，只观察注意力自己会落在哪里。' }, { type: 'source', text: '来源：Project Gutenberg《Monday or Tuesday》；Royal Botanic Gardens, Kew 专题资料。' }] },
+          { no: '06', title: 'John Keats《夜莺颂》：美不能永久解决人生，为什么仍然值得？', blocks: [{ type: 'prose', html: '<p>夜莺带来的不是“艺术使人永恒”的答案。幻想最终瓦解，诗人回到有限的自我；正因为逃离失败，诗才诚实。美不能解决现实，却能让人在有限时间里以不可能的强度感受世界。</p>' }, { type: 'question', text: '如果一件美好的事注定结束，它的短暂会减少价值，还是恰恰构成价值？' }, { type: 'source', text: '来源：Poetry Foundation《Ode to a Nightingale》及 John Keats 专题资料。' }] }
+        ]
+      }
+    },
+
     /* ==================== 2026-08-19 ==================== */
     '2026-08-19': {
       freebies: {
@@ -701,7 +746,7 @@
 
   window.SkyRadarData = {
     /** 所有报告日期，新 → 旧（默认展示最新一天） */
-    dates: ['2026-08-20', '2026-08-19', '2026-08-17', '2026-08-16'],
+    dates: ['2026-08-20', '2026-08-19', '2026-08-18', '2026-08-17', '2026-08-16'],
     /** 专区定义 */
     sections: SECTIONS,
     /** 日期 → 全量报告 */

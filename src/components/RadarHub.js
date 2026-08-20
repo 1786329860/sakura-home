@@ -379,7 +379,7 @@
     if (archiveHead) {
       archiveHead.addEventListener('click', function () {
         state.archiveOpen = !state.archiveOpen;
-        var body = document.getElementById('radar-archive-body');
+        var body = root.querySelector('#radar-archive-body');
         if (body) body.hidden = !state.archiveOpen;
         archiveHead.setAttribute('aria-expanded', String(state.archiveOpen));
         archiveHead.classList.toggle('is-open', state.archiveOpen);
@@ -407,3 +407,4 @@
     render();
   });
 })();
+

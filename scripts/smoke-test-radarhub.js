@@ -59,7 +59,7 @@ const checks = [
   ['往期专区默认折叠', html.includes('radar-section is-collapsed" id="radar-archive-2026-08-16')],
   ['全部链接带 target=_blank', !/<a [^>]*target=/.test(html.replace(/target="_blank" rel="noopener noreferrer"/g, ''))],
   ['全部链接带 rel=noopener noreferrer', (html.match(/<a class="radar-link"/g) || []).length === (html.match(/target="_blank" rel="noopener noreferrer"/g) || []).length],
-  ['链接总数 27（5+4+10+8）', (html.match(/<a class="radar-link"/g) || []).length === 27],
+  ['链接总数 33（5+4+6+10+8）', (html.match(/<a class="radar-link"/g) || []).length === 33],
   ['诗歌逐行渲染', (html.match(/radar-entry__poem/g) || []).length >= 3],
   ['引文块渲染', html.includes('radar-entry__quote')],
   ['思考问题渲染', html.includes('radar-entry__question')],
@@ -68,7 +68,8 @@ const checks = [
   ['专区数量徽章', html.includes('radar-section__count')],
   ['Steam 链接保留', html.includes('https://store.steampowered.com/app/3344950/Incredible_Dracula_Academy_of_Shadows/')],
   ['AMD 两条链接保留', html.includes('how-to-claim-amd-cloud-credits.html') && html.includes('ai-dev-program.html')],
-  ['阿里云三个入口保留', html.includes('https://bailian.console.aliyun.com/') && html.includes('https://www.aliyun.com/solution/free') && html.includes('https://free.aliyun.com/product/ai')]
+  ['阿里云三个入口保留', html.includes('https://bailian.console.aliyun.com/') && html.includes('https://www.aliyun.com/solution/free') && html.includes('https://free.aliyun.com/product/ai')],
+  ['原生 hidden 折叠规则存在', fs.readFileSync('css/radar.css', 'utf8').includes('.radar-archive__body[hidden]') && fs.readFileSync('css/radar.css', 'utf8').includes('.radar-archive-item__body[hidden]')]
 ];
 
 let fail = 0;
